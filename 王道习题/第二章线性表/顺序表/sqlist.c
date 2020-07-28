@@ -18,6 +18,8 @@ void init(Sqlist *L)
 void construct(Sqlist *L)
 {
     L->MaxSize *= 2;
+
+    ElementType *tempPtr = L->data;//暂存原先指向的数组
     L->data = (ElementType*) malloc(L->MaxSize*sizeof(ElementType));
  
     if(L->data == NULL)
@@ -25,6 +27,13 @@ void construct(Sqlist *L)
         printf("Error: malloc fail!\n");
         exit(1);
     }
+
+    //将原先数组的值进行复制
+    for(int i = 0; i < L->length; i++)
+    {
+        L->data[i] = tempPtr[i]; 
+    }
+
 }
 
 int insert_i(Sqlist *L, int i, ElementType e)

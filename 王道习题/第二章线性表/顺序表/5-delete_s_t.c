@@ -17,10 +17,10 @@ int main()
     Sqlist *Lptr = &L;
     init(Lptr);
 
+    srand(time(NULL));
     int a;
     for(int i = 0; i < 50; i++)
     {
-        srand(time(NULL));
         a = rand()%10;
 
         insert_i(Lptr, i+1, a);
