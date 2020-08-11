@@ -34,6 +34,7 @@ void construct(Sqlist *L)
         L->data[i] = tempPtr[i]; 
     }
 
+    free(tempPtr); //释放掉不用的指针，避免野指针，和资源的浪费 
 }
 
 int insert_i(Sqlist *L, int i, ElementType e)
